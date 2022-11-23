@@ -25,6 +25,50 @@
     },
     {
       "methods": [
+        "GET"
+      ],
+      "path": "/$todosAndUsers",
+      "summary": "Get todos with user information",
+      "description": "Lorem ipsum dolor sit amet, **consectetur adipiscing** elit, sed do `eiusmod tempor` incididunt ut labore et dolore magna aliqua.",
+      "version": "v1",
+      "corsPolicy": "anything-goes",
+      "handler": {
+        "export": "default",
+        "module": "$import(./modules/todosAndUsers)",
+        "options": {}
+      },
+      "policies": {
+        "inbound": []
+      },
+      "operationId": "72d01c2b-d461-4b35-85cb-9723d89e3a11"
+    },
+    {
+      "methods": [
+        "GET"
+      ],
+      "path": "/$todosWithNoUserId",
+      "summary": "Get todos with user information copy",
+      "description": "Lorem ipsum dolor sit amet, **consectetur adipiscing** elit, sed do `eiusmod tempor` incididunt ut labore et dolore magna aliqua.",
+      "version": "v1",
+      "corsPolicy": "anything-goes",
+      "handler": {
+        "export": "urlRewriteHandler",
+        "module": "$import(@zuplo/runtime)",
+        "options": {
+          "rewritePattern": "https://jsonplaceholder.typicode.com/todos",
+          "forwardSearch": true
+        }
+      },
+      "policies": {
+        "inbound": [],
+        "outbound": [
+          "custom-code-outbound"
+        ]
+      },
+      "operationId": "3242f8b2-60af-450b-8c5b-db15a983cfdd"
+    },
+    {
+      "methods": [
         "POST"
       ],
       "path": "/todos",
@@ -49,22 +93,27 @@
     },
     {
       "methods": [
-        "GET"
+        "PATCH"
       ],
-      "path": "/$todosAndUsers",
-      "summary": "Get todos with user information",
+      "path": "/todos/:todoId",
+      "summary": "Update todo",
       "description": "Lorem ipsum dolor sit amet, **consectetur adipiscing** elit, sed do `eiusmod tempor` incididunt ut labore et dolore magna aliqua.",
       "version": "v1",
       "corsPolicy": "anything-goes",
       "handler": {
-        "export": "default",
-        "module": "$import(./modules/todosAndUsers)",
-        "options": {}
+        "export": "urlRewriteHandler",
+        "module": "$import(@zuplo/runtime)",
+        "options": {
+          "rewritePattern": "https://jsonplaceholder.typicode.com/todos/${params.todoId}",
+          "forwardSearch": true
+        }
       },
       "policies": {
-        "inbound": []
+        "inbound": [
+          "validate-json-schema-inbound-1"
+        ]
       },
-      "operationId": "72d01c2b-d461-4b35-85cb-9723d89e3a11"
+      "operationId": "8f1d7e82-c2dd-4d00-a62e-8cf4c2e3d07d"
     },
     {
       "methods": [
@@ -87,30 +136,6 @@
         "inbound": []
       },
       "operationId": "0c3e2685-b254-437a-a10d-963b0f812875"
-    },
-    {
-      "methods": [
-        "PATCH"
-      ],
-      "path": "/todos/:todoId",
-      "summary": "Update todo",
-      "description": "Lorem ipsum dolor sit amet, **consectetur adipiscing** elit, sed do `eiusmod tempor` incididunt ut labore et dolore magna aliqua.",
-      "version": "v1",
-      "corsPolicy": "anything-goes",
-      "handler": {
-        "export": "urlRewriteHandler",
-        "module": "$import(@zuplo/runtime)",
-        "options": {
-          "rewritePattern": "https://jsonplaceholder.typicode.com/todos/${params.todoId}",
-          "forwardSearch": true
-        }
-      },
-      "policies": {
-        "inbound": [
-          "validate-json-schema-inbound-1"
-        ]
-      },
-      "operationId": "8f1d7e82-c2dd-4d00-a62e-8cf4c2e3d07d"
     }
   ],
   "versions": [
@@ -145,6 +170,14 @@
       },
       "name": "validate-json-schema-inbound-1",
       "policyType": "validate-json-schema-inbound"
+    },
+    {
+      "handler": {
+        "export": "default",
+        "module": "$import(./modules/remove-user-id)"
+      },
+      "name": "custom-code-outbound",
+      "policyType": "custom-code-outbound"
     }
   ]
 }
