@@ -1,5 +1,5 @@
 // The Todo object
-interface Todo {
+export interface Todo {
   id: number,
   userId: number,
   title: string,
@@ -7,7 +7,7 @@ interface Todo {
 }
 
 // The User object
-interface User {
+export interface User {
   id: number,
   name: string,
   username: string,

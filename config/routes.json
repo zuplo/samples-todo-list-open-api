@@ -2,12 +2,10 @@
   "$schema": "https://cdn.zuplo.com/schemas/routes.json",
   "routes": [
     {
-      "methods": [
-        "GET"
-      ],
+      "methods": ["GET"],
       "path": "/todos",
       "summary": "Get all todos",
-      "description": "Lorem ipsum dolor sit amet, **consectetur adipiscing** elit, sed do `eiusmod tempor` incididunt ut labore et dolore magna aliqua.",
+      "description": "Returns a list of all the todos with user id.",
       "version": "v1",
       "corsPolicy": "anything-goes",
       "handler": {
@@ -24,12 +22,10 @@
       "operationId": "356d0e31-918c-47d4-8e72-a3d85d311d72"
     },
     {
-      "methods": [
-        "GET"
-      ],
+      "methods": ["GET"],
       "path": "/$todosAndUsers",
       "summary": "Get todos with user information",
-      "description": "Lorem ipsum dolor sit amet, **consectetur adipiscing** elit, sed do `eiusmod tempor` incididunt ut labore et dolore magna aliqua.",
+      "description": "Returns a list of all the todos including user information.",
       "version": "v1",
       "corsPolicy": "anything-goes",
       "handler": {
@@ -43,12 +39,10 @@
       "operationId": "72d01c2b-d461-4b35-85cb-9723d89e3a11"
     },
     {
-      "methods": [
-        "GET"
-      ],
+      "methods": ["GET"],
       "path": "/$todosWithNoUserId",
       "summary": "Get todos with user information copy",
-      "description": "Lorem ipsum dolor sit amet, **consectetur adipiscing** elit, sed do `eiusmod tempor` incididunt ut labore et dolore magna aliqua.",
+      "description": "Returns a list of all the todos without user information.",
       "version": "v1",
       "corsPolicy": "anything-goes",
       "handler": {
@@ -61,19 +55,15 @@
       },
       "policies": {
         "inbound": [],
-        "outbound": [
-          "custom-code-outbound"
-        ]
+        "outbound": ["custom-code-outbound"]
       },
       "operationId": "3242f8b2-60af-450b-8c5b-db15a983cfdd"
     },
     {
-      "methods": [
-        "POST"
-      ],
+      "methods": ["POST"],
       "path": "/todos",
       "summary": "Create todo",
-      "description": "Lorem ipsum dolor sit amet, **consectetur adipiscing** elit, sed do `eiusmod tempor` incididunt ut labore et dolore magna aliqua.",
+      "description": "Create a todo item.",
       "version": "v1",
       "corsPolicy": "anything-goes",
       "handler": {
@@ -85,19 +75,15 @@
         }
       },
       "policies": {
-        "inbound": [
-          "validate-json-schema-inbound"
-        ]
+        "inbound": ["validate-json-schema-inbound"]
       },
       "operationId": "65aee36f-9035-4620-8aaf-4da684c8671e"
     },
     {
-      "methods": [
-        "PATCH"
-      ],
+      "methods": ["PATCH"],
       "path": "/todos/:todoId",
       "summary": "Update todo",
-      "description": "Lorem ipsum dolor sit amet, **consectetur adipiscing** elit, sed do `eiusmod tempor` incididunt ut labore et dolore magna aliqua.",
+      "description": "Update a todo item.",
       "version": "v1",
       "corsPolicy": "anything-goes",
       "handler": {
@@ -109,19 +95,15 @@
         }
       },
       "policies": {
-        "inbound": [
-          "validate-json-schema-inbound-1"
-        ]
+        "inbound": ["validate-json-schema-inbound-1"]
       },
       "operationId": "8f1d7e82-c2dd-4d00-a62e-8cf4c2e3d07d"
     },
     {
-      "methods": [
-        "DELETE"
-      ],
+      "methods": ["DELETE"],
       "path": "/todos/:todoId",
       "summary": "Delete todo",
-      "description": "Lorem ipsum dolor sit amet, **consectetur adipiscing** elit, sed do `eiusmod tempor` incididunt ut labore et dolore magna aliqua.",
+      "description": "Delete a todo item.",
       "version": "v1",
       "corsPolicy": "anything-goes",
       "handler": {
