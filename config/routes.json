@@ -34,7 +34,7 @@
       "corsPolicy": "anything-goes",
       "handler": {
         "export": "default",
-        "module": "$import(./modules/todosAndUsers)",
+        "module": "$import(./modules/todos-and-users)",
         "options": {}
       },
       "policies": {
