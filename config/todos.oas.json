@@ -28,10 +28,6 @@
           }
         },
         "operationId": "b61c0cd1-b380-4440-a430-840ea85f3e9c",
-        "oasFilePath": "/config/todos.oas.json",
-        "pathZuploConfig": {
-          "pathMode": "open-api"
-        }
       },
       "post": {
         "summary": "Create Todo",
@@ -54,10 +50,6 @@
           }
         },
         "operationId": "f9e30d74-56ca-4f1e-bcb3-75fe305ea5e4",
-        "oasFilePath": "/config/todos.oas.json",
-        "pathZuploConfig": {
-          "pathMode": "open-api"
-        }
       }
     },
     "/v1/$todosAndUsers": {
@@ -80,10 +72,6 @@
           }
         },
         "operationId": "398f226b-7401-4906-9aba-8dee92068f94",
-        "oasFilePath": "/config/todos.oas.json",
-        "pathZuploConfig": {
-          "pathMode": "open-api"
-        }
       }
     },
     "/v1/$todosWithNoUserId": {
@@ -112,10 +100,6 @@
           }
         },
         "operationId": "d98a939d-d1a2-4352-8c45-3566bfd67860",
-        "oasFilePath": "/config/todos.oas.json",
-        "pathZuploConfig": {
-          "pathMode": "open-api"
-        }
       }
     },
     "/v1/todos/:todoId": {
@@ -143,10 +127,6 @@
           }
         },
         "operationId": "f3334d8b-37f9-489b-87c5-08a8beb5657c",
-        "oasFilePath": "/config/todos.oas.json",
-        "pathZuploConfig": {
-          "pathMode": "open-api"
-        }
       },
       "delete": {
         "summary": "Delete Todo",
@@ -167,10 +147,6 @@
           }
         },
         "operationId": "1647d06c-2a96-41ab-a2f7-ebb55d5bcd76",
-        "oasFilePath": "/config/todos.oas.json",
-        "pathZuploConfig": {
-          "pathMode": "open-api"
-        }
       }
     }
   }
