@@ -6,13 +6,13 @@
   },
   "paths": {
     "/v1/todos": {
-      "x-zuplo": {
+      "x-zuplo-path": {
         "pathMode": "open-api"
       },
       "get": {
         "summary": "Get all todos",
         "description": "Lorem ipsum dolor sit amet, **consectetur adipiscing** elit, sed do `eiusmod tempor` incididunt ut labore et dolore magna aliqua.",
-        "x-zuplo": {
+        "x-zuplo-route": {
           "version": "none",
           "corsPolicy": "none",
           "handler": {
@@ -27,12 +27,12 @@
             "inbound": []
           }
         },
-        "operationId": "b61c0cd1-b380-4440-a430-840ea85f3e9c",
+        "operationId": "b61c0cd1-b380-4440-a430-840ea85f3e9c"
       },
       "post": {
         "summary": "Create Todo",
         "description": "Lorem ipsum dolor sit amet, **consectetur adipiscing** elit, sed do `eiusmod tempor` incididunt ut labore et dolore magna aliqua.",
-        "x-zuplo": {
+        "x-zuplo-route": {
           "version": "none",
           "corsPolicy": "none",
           "handler": {
@@ -44,22 +44,20 @@
             }
           },
           "policies": {
-            "inbound": [
-              "validate-json-schema-inbound"
-            ]
+            "inbound": ["validate-json-schema-inbound"]
           }
         },
-        "operationId": "f9e30d74-56ca-4f1e-bcb3-75fe305ea5e4",
+        "operationId": "f9e30d74-56ca-4f1e-bcb3-75fe305ea5e4"
       }
     },
     "/v1/$todosAndUsers": {
-      "x-zuplo": {
+      "x-zuplo-path": {
         "pathMode": "open-api"
       },
       "get": {
         "summary": "Get todos with user information",
         "description": "Lorem ipsum dolor sit amet, **consectetur adipiscing** elit, sed do `eiusmod tempor` incididunt ut labore et dolore magna aliqua.",
-        "x-zuplo": {
+        "x-zuplo-route": {
           "version": "none",
           "corsPolicy": "none",
           "handler": {
@@ -71,17 +69,17 @@
             "inbound": []
           }
         },
-        "operationId": "398f226b-7401-4906-9aba-8dee92068f94",
+        "operationId": "398f226b-7401-4906-9aba-8dee92068f94"
       }
     },
     "/v1/$todosWithNoUserId": {
-      "x-zuplo": {
+      "x-zuplo-path": {
         "pathMode": "open-api"
       },
       "get": {
         "summary": "Get todos with user information copy",
         "description": "Lorem ipsum dolor sit amet, **consectetur adipiscing** elit, sed do `eiusmod tempor` incididunt ut labore et dolore magna aliqua.",
-        "x-zuplo": {
+        "x-zuplo-route": {
           "version": "none",
           "corsPolicy": "none",
           "handler": {
@@ -94,22 +92,20 @@
           },
           "policies": {
             "inbound": [],
-            "outbound": [
-              "custom-code-outbound"
-            ]
+            "outbound": ["custom-code-outbound"]
           }
         },
-        "operationId": "d98a939d-d1a2-4352-8c45-3566bfd67860",
+        "operationId": "d98a939d-d1a2-4352-8c45-3566bfd67860"
       }
     },
     "/v1/todos/:todoId": {
-      "x-zuplo": {
+      "x-zuplo-path": {
         "pathMode": "open-api"
       },
       "patch": {
         "summary": "Update Todo",
         "description": "Lorem ipsum dolor sit amet, **consectetur adipiscing** elit, sed do `eiusmod tempor` incididunt ut labore et dolore magna aliqua.",
-        "x-zuplo": {
+        "x-zuplo-route": {
           "version": "none",
           "corsPolicy": "none",
           "handler": {
@@ -121,17 +117,15 @@
             }
           },
           "policies": {
-            "inbound": [
-              "validate-json-schema-inbound-1"
-            ]
+            "inbound": ["validate-json-schema-inbound-1"]
           }
         },
-        "operationId": "f3334d8b-37f9-489b-87c5-08a8beb5657c",
+        "operationId": "f3334d8b-37f9-489b-87c5-08a8beb5657c"
       },
       "delete": {
         "summary": "Delete Todo",
         "description": "Lorem ipsum dolor sit amet, **consectetur adipiscing** elit, sed do `eiusmod tempor` incididunt ut labore et dolore magna aliqua.",
-        "x-zuplo": {
+        "x-zuplo-route": {
           "version": "none",
           "corsPolicy": "none",
           "handler": {
@@ -146,7 +140,7 @@
             "inbound": []
           }
         },
-        "operationId": "1647d06c-2a96-41ab-a2f7-ebb55d5bcd76",
+        "operationId": "1647d06c-2a96-41ab-a2f7-ebb55d5bcd76"
       }
     }
   }
