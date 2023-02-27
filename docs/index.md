@@ -1,43 +1,11 @@
-# My API
+# Getting Started
 
-You can write full markdown in these documents. Syntax highlighting and full
-Github Flavored markdown are supported. To learn more about customizing the
-documentation of this developer portal
-[see the documentation](https://zuplo.com/docs/developer-portal/adding-pages).
+Simply follow the docs to understand which endpoints exist and how to call them. No authentication is required.
 
-```ts
-const response = await fetch("https://echo.zuplo.io", {
-  headers: {
-    "content-type": "application/json",
-  },
-});
+## JSON Placeholder
 
-const data = await response.json();
-console.log(data);
-```
+This API makes extensive use of the [JSON Placeholder](https://jsonplaceholder.typicode.com/) API. Zuplo is used to built convenience functions on top of the base API to make for a better developer experience.
 
-## Labore et Dolore
+## What is Zuplo?
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-culpa qui officia deserunt mollit anim id est laborum.
-
-| Item            | Description                                  | Quanity |
-| --------------- | -------------------------------------------- | ------- |
-| ullamco laboris | reprehenderit in voluptate velit esse cillum | 21      |
-| Excepteur sint  | tempor incididunt ut labore                  | 1       |
-| anim id est     | irure dolor in reprehenderit in voluptate    | 82      |
-| non proiden     | cupidatat non proident, sunt in              | 53      |
-
-## Aliquip pariatur
-
-Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-deserunt mollit anim id est laborum.
-
-- **Item 1** - ullamco laboris nisi ut aliquip ex ea commodo
-- **Item 2** - ullamco laboris nisi ut aliquip ex ea commodo
-- **Item 3** - ullamco laboris nisi ut aliquip ex ea commodo
-- **Item 4** - ullamco laboris nisi ut aliquip ex ea commodo
+[Zuplo](https://zuplo.com/) is a fully-managed, serverless API edge gateway. You can add rate-limiting, authentication as fast as you can commit to git. Additionally, you can automatically generate a stripe-quality developer portal (which you are looking at right now).
