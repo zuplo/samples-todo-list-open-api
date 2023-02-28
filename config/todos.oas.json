@@ -441,6 +441,7 @@
         ],
         "responses": {
           "200": {
+            "description": "Todos with creating user data attached",
             "content": {
               "application/json": {
                 "schema": {
@@ -590,6 +591,7 @@
         ],
         "responses": {
           "200": {
+            "description": "The new todo object.",
             "content": {
               "application/json": {
                 "schema": {
@@ -656,6 +658,7 @@
         ],
         "responses": {
           "200": {
+            "description": "Empty response.",
             "content": {
               "application/json": {
                 "schema": {
