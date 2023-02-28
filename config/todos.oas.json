@@ -326,7 +326,6 @@
         "summary": "Get all todos",
         "description": "Gets all the todos in the todo list.",
         "x-zuplo-route": {
-          "version": "none",
           "corsPolicy": "none",
           "handler": {
             "export": "urlRewriteHandler",
@@ -361,7 +360,6 @@
         "summary": "Create Todo",
         "description": "Creates a todo list item.",
         "x-zuplo-route": {
-          "version": "none",
           "corsPolicy": "none",
           "handler": {
             "export": "urlRewriteHandler",
@@ -424,7 +422,6 @@
         "summary": "Get todos with user information",
         "description": "Gets the list of todos, with a `user` property that contains information about the user that created the todo list item.",
         "x-zuplo-route": {
-          "version": "none",
           "corsPolicy": "none",
           "handler": {
             "export": "default",
@@ -512,7 +509,6 @@
         "summary": "Get todos with user information removed",
         "description": "Gets the list of todos with the user information stripped out. Use this API if the user's ID is sensitive information that can't be leaked to the product.",
         "x-zuplo-route": {
-          "version": "none",
           "corsPolicy": "none",
           "handler": {
             "export": "urlRewriteHandler",
@@ -558,7 +554,6 @@
         "summary": "Update Todo",
         "description": "Updates a todo list item with a matching `todoId`. Will return an error if a matching todo item is not found.",
         "x-zuplo-route": {
-          "version": "none",
           "corsPolicy": "none",
           "handler": {
             "export": "urlRewriteHandler",
@@ -627,7 +622,6 @@
         "summary": "Delete Todo",
         "description": "Deletes a todo list item. Will return an error if the todo list item does not exist.",
         "x-zuplo-route": {
-          "version": "none",
           "corsPolicy": "none",
           "handler": {
             "export": "urlRewriteHandler",
