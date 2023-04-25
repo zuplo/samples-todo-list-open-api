@@ -1,5 +1,5 @@
 import { ZuploContext, ZuploRequest } from "@zuplo/runtime";
-import { Todo } from "./modules/types"
+import { Todo } from "./types"
 /**
  * This is a simple outbound policy that will remove the 'userId'
  * property from the todoItem as it passes out through the gateway

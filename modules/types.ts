@@ -1,13 +1,13 @@
 // The Todo object
-interface Todo {
+export interface Todo {
   id: number,
-  userId: number,
+  userId?: number,
   title: string,
   completed: boolean,
 }
 
 // The User object
-interface User {
+export interface User {
   id: number,
   name: string,
   username: string,

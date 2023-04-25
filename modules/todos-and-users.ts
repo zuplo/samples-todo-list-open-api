@@ -1,5 +1,5 @@
 import { ZuploContext, ZuploRequest } from "@zuplo/runtime";
-import { Todo, User } from "./modules/types"
+import { Todo, User } from "./types"
 
 /**
  * This is a custom Request Handler that calls two endpoints and merges
