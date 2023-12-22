@@ -5,7 +5,7 @@
         "export": "default",
         "module": "$import(./modules/remove-user-id)"
       },
-      "name": "custom-code-outbound",
+      "name": "remove-user-id",
       "policyType": "custom-code-outbound"
     },
     {
