@@ -2,33 +2,42 @@
   "policies": [
     {
       "handler": {
-        "export": "ValidateJsonSchemaInbound",
-        "module": "$import(@zuplo/runtime)",
-        "options": {
-          "validator": "$import(./schemas/insert-todo.json)"
-        }
-      },
-      "name": "validate-json-schema-inbound",
-      "policyType": "validate-json-schema-inbound"
-    },
-    {
-      "handler": {
-        "export": "ValidateJsonSchemaInbound",
-        "module": "$import(@zuplo/runtime)",
-        "options": {
-          "validator": "$import(./schemas/update-todo.json)"
-        }
-      },
-      "name": "validate-json-schema-inbound-1",
-      "policyType": "validate-json-schema-inbound"
-    },
-    {
-      "handler": {
         "export": "default",
         "module": "$import(./modules/remove-user-id)"
       },
-      "name": "custom-code-outbound",
+      "name": "remove-user-id",
       "policyType": "custom-code-outbound"
+    },
+    {
+      "handler": {
+        "export": "RequestValidationInboundPolicy",
+        "module": "$import(@zuplo/runtime)",
+        "options": {
+          "includeRequestInLogs": false,
+          "logLevel": "warn",
+          "validateBody": "reject-and-log",
+          "validatePathParameters": "none",
+          "validateQueryParameters": "none"
+        }
+      },
+      "name": "request-validation-inbound",
+      "policyType": "request-validation-inbound"
+    },
+    {
+      "handler": {
+        "export": "SetHeadersInboundPolicy",
+        "module": "$import(@zuplo/runtime)",
+        "options": {
+          "headers": [
+            {
+              "name": "content-type",
+              "value": "application/json"
+            }
+          ]
+        }
+      },
+      "name": "set-content-type",
+      "policyType": "set-headers-inbound"
     }
   ]
 }

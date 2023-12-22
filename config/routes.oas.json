@@ -371,7 +371,8 @@
           },
           "policies": {
             "inbound": [
-              "validate-json-schema-inbound"
+              "set-content-type",
+              "request-validation-inbound"
             ]
           }
         },
@@ -414,7 +415,7 @@
         }
       }
     },
-    "/v1/$todosAndUsers": {
+    "/v1/todosAndUsers": {
       "x-zuplo-path": {
         "pathMode": "open-api"
       },
@@ -501,7 +502,7 @@
         }
       }
     },
-    "/v1/$todosWithNoUserId": {
+    "/v1/todosWithNoUserId": {
       "x-zuplo-path": {
         "pathMode": "open-api"
       },
@@ -521,7 +522,7 @@
           "policies": {
             "inbound": [],
             "outbound": [
-              "custom-code-outbound"
+              "remove-user-id"
             ]
           }
         },
@@ -546,7 +547,7 @@
         }
       }
     },
-    "/v1/todos/:todoId": {
+    "/v1/todos/{todoId}": {
       "x-zuplo-path": {
         "pathMode": "open-api"
       },
@@ -565,7 +566,8 @@
           },
           "policies": {
             "inbound": [
-              "validate-json-schema-inbound-1"
+              "set-content-type",
+              "request-validation-inbound"
             ]
           }
         },
