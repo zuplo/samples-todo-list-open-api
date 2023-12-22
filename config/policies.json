@@ -5,7 +5,7 @@
         "export": "default",
         "module": "$import(./modules/remove-user-id)"
       },
-      "name": "remove-user-id",
+      "name": "custom-code-outbound",
       "policyType": "custom-code-outbound"
     },
     {
@@ -14,30 +14,44 @@
         "module": "$import(@zuplo/runtime)",
         "options": {
           "includeRequestInLogs": false,
-          "logLevel": "warn",
+          "logLevel": "info",
           "validateBody": "reject-and-log",
-          "validatePathParameters": "none",
-          "validateQueryParameters": "none"
+          "validatePathParameters": "log-only",
+          "validateQueryParameters": "log-only"
         }
       },
-      "name": "request-validation-inbound",
+      "name": "insert-todo-request-validation-inbound",
       "policyType": "request-validation-inbound"
     },
     {
       "handler": {
-        "export": "SetHeadersInboundPolicy",
+        "export": "RequestValidationInboundPolicy",
         "module": "$import(@zuplo/runtime)",
         "options": {
-          "headers": [
-            {
-              "name": "content-type",
-              "value": "application/json"
-            }
-          ]
+          "includeRequestInLogs": false,
+          "logLevel": "info",
+          "validateBody": "reject-and-log",
+          "validatePathParameters": "reject-and-log",
+          "validateQueryParameters": "log-only"
         }
       },
-      "name": "set-content-type",
-      "policyType": "set-headers-inbound"
+      "name": "update-todo-request-validation-inbound",
+      "policyType": "request-validation-inbound"
+    },
+    {
+      "handler": {
+        "export": "RequestValidationInboundPolicy",
+        "module": "$import(@zuplo/runtime)",
+        "options": {
+          "includeRequestInLogs": false,
+          "logLevel": "info",
+          "validateBody": "none",
+          "validatePathParameters": "reject-and-log",
+          "validateQueryParameters": "log-only"
+        }
+      },
+      "name": "delete-todo-request-validation-inbound",
+      "policyType": "request-validation-inbound"
     }
   ]
 }
