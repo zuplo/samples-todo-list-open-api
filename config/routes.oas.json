@@ -19,18 +19,13 @@
     "schemas": {
       "TodoObject": {
         "type": "object",
-        "required": [
-          "id",
-          "userId",
-          "title",
-          "completed"
-        ],
+        "required": ["id", "userId", "title", "completed"],
         "properties": {
           "id": {
-            "type": "string"
+            "type": "integer"
           },
           "userId": {
-            "type": "string"
+            "type": "integer"
           },
           "title": {
             "type": "string"
@@ -50,14 +45,10 @@
       },
       "AnonymousTodoObject": {
         "type": "object",
-        "required": [
-          "id",
-          "title",
-          "completed"
-        ],
+        "required": ["id", "title", "completed"],
         "properties": {
           "id": {
-            "type": "string"
+            "type": "integer"
           },
           "title": {
             "type": "string"
@@ -86,6 +77,12 @@
               "id": 1,
               "title": "Take out the trash",
               "completed": false
+            },
+            {
+              "userId": 2,
+              "id": 2,
+              "title": "Clean the dishes",
+              "completed": false
             }
           ]
         ]
@@ -93,33 +90,23 @@
       "InsertTodoObject": {
         "type": "object",
         "title": "Todo Insert Schema",
-        "required": [
-          "userId",
-          "title",
-          "completed"
-        ],
+        "required": ["userId", "title", "completed"],
         "additionalProperties": false,
         "properties": {
           "userId": {
             "type": "integer",
             "description": "The userId that created the todo list item.",
-            "examples": [
-              1
-            ]
+            "examples": [1]
           },
           "title": {
             "type": "string",
             "description": "The title of the todo list item.",
-            "examples": [
-              "Wash the dishes"
-            ]
+            "examples": ["Wash the dishes"]
           },
           "completed": {
             "type": "boolean",
             "description": "Whether or not the todo list item is completed.",
-            "examples": [
-              false
-            ]
+            "examples": [false]
           }
         },
         "examples": [
@@ -134,32 +121,22 @@
         "type": "object",
         "title": "Update Todo Object",
         "additionalProperties": false,
-        "required": [
-          "userId",
-          "completed",
-          "title"
-        ],
+        "required": ["userId", "completed", "title"],
         "properties": {
           "userId": {
             "type": "integer",
             "description": "The userId that created the todo list item.",
-            "examples": [
-              1
-            ]
+            "examples": [1]
           },
           "title": {
             "type": "string",
             "description": "The title of the todo list item.",
-            "examples": [
-              "Make dinner"
-            ]
+            "examples": ["Make dinner"]
           },
           "completed": {
             "type": "boolean",
             "description": "Whether or not the todo list item is completed.",
-            "examples": [
-              false
-            ]
+            "examples": [false]
           }
         },
         "examples": [
@@ -172,13 +149,7 @@
       },
       "SchemaValidationError": {
         "type": "object",
-        "required": [
-          "type",
-          "title",
-          "status",
-          "detail",
-          "instance"
-        ],
+        "required": ["type", "title", "status", "detail", "instance"],
         "properties": {
           "type": {
             "type": "string"
@@ -187,7 +158,7 @@
             "type": "string"
           },
           "status": {
-            "type": "number"
+            "type": "integer"
           },
           "detail": {
             "type": "string"
@@ -219,9 +190,7 @@
               "buildId": "83e3d0f1-89a8-46ea-b040-e0a2432f2ea5",
               "rayId": "7a031f102747944d-SJC"
             },
-            "errors": [
-              "Body must have required property 'userId'"
-            ]
+            "errors": ["Body must have required property 'userId'"]
           }
         ]
       },
@@ -352,9 +321,7 @@
             }
           }
         },
-        "tags": [
-          "Standard Todo List Endpoints"
-        ]
+        "tags": ["Standard Todo List Endpoints"]
       },
       "post": {
         "summary": "Create Todo",
@@ -370,15 +337,10 @@
             }
           },
           "policies": {
-            "inbound": [
-              "set-content-type",
-              "request-validation-inbound"
-            ]
+            "inbound": ["insert-todo-request-validation-inbound"]
           }
         },
-        "tags": [
-          "Standard Todo List Endpoints"
-        ],
+        "tags": ["Standard Todo List Endpoints"],
         "operationId": "f9e30d74-56ca-4f1e-bcb3-75fe305ea5e4",
         "requestBody": {
           "description": "Payload required to create a todo list item.",
@@ -391,6 +353,18 @@
             }
           }
         },
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Content type of the request body. Use application/json",
+            "schema": {
+              "type": "string",
+              "example": "application/json"
+            }
+          }
+        ],
         "responses": {
           "201": {
             "description": "The created todo list item",
@@ -415,7 +389,7 @@
         }
       }
     },
-    "/v1/todosAndUsers": {
+    "/v1/$todosAndUsers": {
       "x-zuplo-path": {
         "pathMode": "open-api"
       },
@@ -434,9 +408,7 @@
           }
         },
         "operationId": "398f226b-7401-4906-9aba-8dee92068f94",
-        "tags": [
-          "Extended Todo List Endpoints"
-        ],
+        "tags": ["Extended Todo List Endpoints"],
         "responses": {
           "200": {
             "description": "Todos with creating user data attached",
@@ -446,13 +418,7 @@
                   "type": "array",
                   "items": {
                     "type": "object",
-                    "required": [
-                      "user",
-                      "userId",
-                      "id",
-                      "title",
-                      "completed"
-                    ],
+                    "required": ["user", "userId", "id", "title", "completed"],
                     "allOf": [
                       {
                         "$ref": "#/components/schemas/TodoObject"
@@ -502,7 +468,7 @@
         }
       }
     },
-    "/v1/todosWithNoUserId": {
+    "/v1/$todosWithNoUserId": {
       "x-zuplo-path": {
         "pathMode": "open-api"
       },
@@ -521,15 +487,11 @@
           },
           "policies": {
             "inbound": [],
-            "outbound": [
-              "remove-user-id"
-            ]
+            "outbound": ["remove-user-id"]
           }
         },
         "operationId": "d98a939d-d1a2-4352-8c45-3566bfd67860",
-        "tags": [
-          "Extended Todo List Endpoints"
-        ],
+        "tags": ["Extended Todo List Endpoints"],
         "responses": {
           "200": {
             "description": "Anonymized todo list",
@@ -551,6 +513,62 @@
       "x-zuplo-path": {
         "pathMode": "open-api"
       },
+      "delete": {
+        "summary": "Delete Todo",
+        "description": "Deletes a todo list item. Will return an error if the todo list item does not exist.",
+        "x-zuplo-route": {
+          "corsPolicy": "none",
+          "handler": {
+            "export": "urlRewriteHandler",
+            "module": "$import(@zuplo/runtime)",
+            "options": {
+              "rewritePattern": "https://jsonplaceholder.typicode.com/todos/${params.todoId}",
+              "forwardSearch": true
+            }
+          },
+          "policies": {
+            "inbound": ["delete-todo-request-validation-inbound"]
+          }
+        },
+        "operationId": "1647d06c-2a96-41ab-a2f7-ebb55d5bcd76",
+        "tags": ["Standard Todo List Endpoints"],
+        "parameters": [
+          {
+            "name": "todoId",
+            "in": "path",
+            "description": "ID of the todo list item to be deleted.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "1",
+              "pattern": "^-?\\d+$"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Empty response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "examples": [{}]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Schema validation error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SchemaValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
       "patch": {
         "summary": "Update Todo",
         "description": "Updates a todo list item with a matching `todoId`. Will return an error if a matching todo item is not found.",
@@ -565,16 +583,11 @@
             }
           },
           "policies": {
-            "inbound": [
-              "set-content-type",
-              "request-validation-inbound"
-            ]
+            "inbound": ["update-todo-request-validation-inbound"]
           }
         },
         "operationId": "f3334d8b-37f9-489b-87c5-08a8beb5657c",
-        "tags": [
-          "Standard Todo List Endpoints"
-        ],
+        "tags": ["Standard Todo List Endpoints"],
         "parameters": [
           {
             "name": "todoId",
@@ -582,7 +595,19 @@
             "description": "ID of the todo list item to be modified.",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "example": "1",
+              "pattern": "^-?\\d+$"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "description": "Content type of the request body. Use application/json",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "application/json"
             }
           }
         ],
@@ -615,54 +640,6 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/UpdateTodoObject"
-              }
-            }
-          }
-        }
-      },
-      "delete": {
-        "summary": "Delete Todo",
-        "description": "Deletes a todo list item. Will return an error if the todo list item does not exist.",
-        "x-zuplo-route": {
-          "corsPolicy": "none",
-          "handler": {
-            "export": "urlRewriteHandler",
-            "module": "$import(@zuplo/runtime)",
-            "options": {
-              "rewritePattern": "https://jsonplaceholder.typicode.com/todos/${params.todoId}",
-              "forwardSearch": true
-            }
-          },
-          "policies": {
-            "inbound": []
-          }
-        },
-        "operationId": "1647d06c-2a96-41ab-a2f7-ebb55d5bcd76",
-        "tags": [
-          "Standard Todo List Endpoints"
-        ],
-        "parameters": [
-          {
-            "name": "todoId",
-            "in": "path",
-            "description": "ID of the todo list item to be deleted.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Empty response.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "examples": [
-                    {}
-                  ]
-                }
               }
             }
           }
