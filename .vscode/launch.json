@@ -5,69 +5,12 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Debug: Attach to Running Zup",
-      "processId": "${command:PickProcess}",
+      "name": "Zuplo Gateway",
+      "type": "node",
       "request": "attach",
-      "skipFiles": ["<node_internals>/**"],
-      "type": "node"
-    },
-    {
-      "type": "node",
-      "request": "launch",
-      "name": "Dev",
-      "env": {
-        "NODE_ENV": "development"
-      },
-      "smartStep": true,
-      "runtimeExecutable": "npm",
-      "runtimeArgs": ["run-script", "dev"],
-      "skipFiles": ["<node_internals>/**"],
-      "console": "integratedTerminal",
-      "sourceMaps": true,
-      "resolveSourceMapLocations": [
-        "${workspaceFolder}/dist/**",
-        "!**/node_modules/**"
-      ]
-    },
-    {
-      "type": "node",
-      "request": "launch",
-      "name": "Start",
-      "env": {
-        "NODE_ENV": "development"
-      },
-      "smartStep": true,
-      "runtimeExecutable": "npm",
-      "runtimeArgs": ["run-script", "serve"],
-      "skipFiles": ["<node_internals>/**"],
-      "console": "integratedTerminal"
-    },
-    {
-      "type": "node",
-      "request": "launch",
-      "name": "Build: Workers",
-      "env": {
-        "NODE_ENV": "development"
-      },
-      "smartStep": true,
-      "runtimeExecutable": "npm",
-      "runtimeArgs": ["run-script", "build"],
-      "skipFiles": ["<node_internals>/**"],
-      "console": "integratedTerminal"
-    },
-    {
-      "type": "node",
-      "request": "launch",
-      "name": "Run: Tests",
-      "env": {
-        "NODE_ENV": "development",
-        "__ZUPLO_LOG_LEVEL": "info"
-      },
-      "smartStep": true,
-      "runtimeExecutable": "npm",
-      "runtimeArgs": ["run-script", "test"],
-      "skipFiles": ["<node_internals>/**"],
-      "console": "integratedTerminal"
+      "port": 9229,
+      "attachExistingChildren": true,
+      "autoAttachChildProcesses": true
     }
   ]
 }
