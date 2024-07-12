@@ -8,9 +8,8 @@
       "name": "Zuplo Gateway",
       "type": "node",
       "request": "attach",
-      "port": 9229,
-      "attachExistingChildren": true,
-      "autoAttachChildProcesses": true
+      "restart": true,
+      "port": 9229
     }
   ]
 }
